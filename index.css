@@ -488,3 +488,30 @@ text-shadow:0 0 6px rgba(160,220,255,.6)!important;
 .tk-re{color:#d8f1ff!important;font-weight:800!important;text-shadow:0 0 6px rgba(160,220,255,.55)!important;}
 .tk-skill{table-layout:fixed!important;width:100%!important;}.tk-skill th,.tk-skill td{box-sizing:border-box!important;}.tk-skill th:nth-child(1),.tk-skill td:nth-child(1){width:22%!important;}.tk-skill th:nth-child(2),.tk-skill td:nth-child(2){width:14%!important;text-align:center!important;}.tk-skill th:nth-child(3),.tk-skill td:nth-child(3){width:64%!important;}.tk-skill td:nth-child(2){white-space:nowrap!important;}.tk-skill th:nth-child(2){white-space:nowrap!important;text-align:center!important;}
 .tk-skill th:nth-child(2){text-align:center!important;}.tk-skill td:nth-child(2){text-align:center!important;vertical-align:middle!important;}.tk-skill td:nth-child(1),.tk-skill td:nth-child(3){vertical-align:top!important;}.tk-skill td:nth-child(2){line-height:1.2!important;}
+
+details.tk-details.tk-ability{
+position:relative;
+overflow:hidden;
+}
+
+details.tk-details.tk-ability::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+url("https://livedoor.blogimg.jp/nakayosikoyosi1992/imgs/c/3/c36df15a.png?v=20260304181133");
+
+background-size:cover;
+background-position:center;
+
+opacity:.45;
+
+z-index:0;
+}
+
+details.tk-details.tk-ability > *{
+position:relative;
+z-index:1;
+}
