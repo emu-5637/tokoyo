@@ -478,4 +478,8 @@ left:0;
 color:rgba(220,220,220,.45);
 
 }
-.tk-re{color:#d8f1ff!important;font-weight:bold!important;text-shadow:0 0 8px rgba(180,220,255,.6)!important}
+.tk-re{
+color:#d8f1ff!important;
+font-weight:bold!important;
+text-shadow:0 0 6px rgba(160,220,255,.6)!important;
+}
