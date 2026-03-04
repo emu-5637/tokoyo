@@ -1,106 +1,154 @@
-html, body{
-  background:url('https://livedoor.blogimg.jp/nakayosikoyosi1992/imgs/c/3/c36df15a.png') no-repeat center top fixed !important;
-  background-size:cover !important;
-}
-
 /* =========================================================
-   Tokoyo PC List - 312-like (stable / comment-safe)
+   Tokoyo PC List - 312-like FINAL (stable / comment-safe)
+   Author: emu-5637 tokoyo
    ========================================================= */
 
-/* コメント欄の“自分の領域”だけを美しく */
+/* ---------------------------------------------------------
+   0) 全体（コメント欄の自分の領域だけ確実に効かせる）
+   --------------------------------------------------------- */
 .tk-wrap{
   width: 95%;
   max-width: 980px;
   margin: 0 auto;
+  padding: 16px 12px;
+
   color:#eaeaea;
   font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
   letter-spacing: .05em;
   font-size:14px;
-  line-height:1.9;
+  line-height:1.85;
   text-align:left;
 
-  /* 312っぽい「全体が黒い額縁」感 */
-  background: rgba(0,0,0,.55);
+  /* 312の「黒い額縁」感 */
+  background: linear-gradient(to bottom, rgba(10,10,10,.72), rgba(0,0,0,.78));
   border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 0 26px rgba(0,0,0,.7);
-  border-radius: 10px;
-  padding: 18px 12px;
+  box-shadow: 0 0 28px rgba(0,0,0,.75);
+  border-radius: 12px;
+
+  /* 余白を詰める（不格好対策） */
+  overflow: hidden;
 }
 
 /* リンク */
 .tk-wrap a{ color:#e6e6e6; text-decoration:none; }
 .tk-wrap a:hover{ color:#fff; text-decoration:underline; }
 
-/* =======================
-   画像切替：312風（均等タブ）
-   ======================= */
+/* 不要な謎の上下余白が出る環境対策 */
+.tk-wrap table{ margin:0; }
+.tk-wrap p{ margin:0 0 10px 0; }
+.tk-wrap p:last-child{ margin-bottom:0; }
+
+/* ---------------------------------------------------------
+   1) 画像切替（312風：均等バー）
+   旧：.tk-image-links（inline-block）も残しつつ、
+   完成版は table でも div でも見栄えが揃うように。
+   --------------------------------------------------------- */
+
+/* === A) divリンク版（あなたの現行HTML用） === */
 .tk-image-links{
   width: 92%;
   margin: 0 auto 10px auto;
   padding: 0;
+  text-align:center;
 }
 
-/* ボタン列 → “均等割りバー”に */
+/* 312っぽい均等ボタン（PCは3列、スマホは自動で落ちる） */
 .tk-image-links a{
   display:inline-block;
-  width: calc(33.333% - 8px);
-  margin: 0 4px 8px 4px;
+  width: calc(33.333% - 10px);
+  margin: 0 5px 10px 5px;
   padding: 10px 0;
   text-align:center;
 
-  background: linear-gradient(to bottom, rgba(20,20,20,.9), rgba(0,0,0,.95));
+  background: linear-gradient(to bottom, rgba(24,24,24,.92), rgba(0,0,0,.96));
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px;
+  border-radius: 10px;
 
-  letter-spacing: .14em;
-  font-weight: bold;
+  letter-spacing: .16em;
+  font-weight: 700;
   font-size: 13px;
+
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.35);
 }
-@media (max-width:680px){
-  .tk-image-links a{ width: calc(50% - 8px); }
-}
-@media (max-width:420px){
-  .tk-image-links a{ width: calc(100% - 8px); }
+.tk-image-links a:hover{
+  text-decoration:none;
+  background: linear-gradient(to bottom, rgba(40,40,40,.92), rgba(0,0,0,.96));
 }
 
-/* メイン画像 */
+@media (max-width: 700px){
+  .tk-image-links a{ width: calc(50% - 10px); }
+}
+@media (max-width: 420px){
+  .tk-image-links a{ width: calc(100% - 10px); }
+}
+
+/* === B) table版（312完全一致に寄せたい時用） === */
+.tk-imagebar{
+  width:92%;
+  margin:0 auto 10px auto;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.tk-imagebar td{
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(to bottom, rgba(24,24,24,.92), rgba(0,0,0,.96));
+  text-align:center;
+  padding:10px 0;
+}
+.tk-imagebar a{
+  display:block;
+  width:100%;
+  margin:0;
+  padding:0;
+  background:none;
+  border:none;
+  border-radius:0;
+  letter-spacing:.16em;
+  font-weight:700;
+  font-size:13px;
+}
+.tk-imagebar td:hover{
+  background:linear-gradient(to bottom, rgba(40,40,40,.92), rgba(0,0,0,.96));
+}
+
+/* メイン画像枠 */
 .tk-main-image{
   width:92%;
-  margin: 0 auto 18px auto;
+  margin: 0 auto 14px auto;
   text-align:center;
-  padding: 12px 10px;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 10px;
+  padding: 10px 10px;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
 }
 
+/* 画像：大きすぎ対策（ここが最重要） */
 .tk-profile-image{
-  width: min(600px, 100%);
+  width: min(520px, 100%);      /* ← 600→520で“でかい”を解消 */
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 0 22px rgba(0,0,0,.8);
+  box-shadow: 0 0 22px rgba(0,0,0,.85);
 }
 
-/* =======================
-   基本情報：312風（タイトル行＋2カラム）
-   ======================= */
+/* ---------------------------------------------------------
+   2) 基本情報：312風（タイトル行＋2カラム）
+   --------------------------------------------------------- */
 .tk-basic{
   width:92%;
-  margin: 0 auto 18px auto;
+  margin: 0 auto 14px auto;
   border-collapse: collapse;
-  background: linear-gradient(to bottom, rgba(10,10,10,.88), rgba(0,0,0,.92));
+  background: linear-gradient(to bottom, rgba(12,12,12,.88), rgba(0,0,0,.92));
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
-  overflow:hidden; /* 角丸を効かせる */
+  border-radius: 12px;
+  overflow:hidden;
 }
 
-/* “プロフィール”ヘッダ行を追加したい時用 */
 .tk-basic .tk-basic-title{
-  background: linear-gradient(to right, rgba(0,0,0,.95), rgba(20,20,20,.85));
+  background: linear-gradient(to right, rgba(0,0,0,.96), rgba(22,22,22,.88));
   color:#f0f0f0;
   letter-spacing:.18em;
-  font-weight:bold;
+  font-weight:800;
   padding: 12px 14px;
   border-bottom: 1px solid rgba(255,255,255,.10);
 }
@@ -110,10 +158,8 @@ html, body{
   padding: 10px 12px;
   text-align:left;
   white-space:nowrap;
-
   background: rgba(0,0,0,.55);
   border-bottom: 1px solid rgba(255,255,255,.08);
-
   color: rgba(230,230,230,.85);
   letter-spacing:.12em;
 }
@@ -122,16 +168,18 @@ html, body{
   border-bottom: 1px solid rgba(255,255,255,.08);
   color:#eaeaea;
 }
+.tk-basic tr:last-child th,
+.tk-basic tr:last-child td{ border-bottom:none; }
 
-/* =======================
-   “容姿/性格”箱：312風（見出しが映える）
-   ======================= */
+/* ---------------------------------------------------------
+   3) 容姿 / 性格：箱＋見出し
+   --------------------------------------------------------- */
 .tk-box{
   width:92%;
-  margin: 0 auto 16px auto;
+  margin: 0 auto 14px auto;
   background: linear-gradient(to bottom, rgba(12,12,12,.86), rgba(0,0,0,.92));
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow:hidden;
 }
 
@@ -140,49 +188,49 @@ html, body{
   background: linear-gradient(to right, rgba(0,0,0,.96), rgba(18,18,18,.85), rgba(0,0,0,.96));
   border-left: 4px solid rgba(190,190,190,.55);
 
-  font-weight: bold;
+  font-weight:800;
   letter-spacing: .18em;
-  font-size: 15px;
+  font-size: 14.5px;
   color:#eaeaea;
 }
 .tk-title::before{ content:"◆ "; color:rgba(220,220,220,.65); }
 
 .tk-box > *:not(.tk-title){
-  padding: 14px;
+  padding: 12px 14px;
 }
 
-/* 容姿：タグを少し整列＆主張しすぎない */
+/* 容姿タグ */
 .tk-tags{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
 }
 .tk-tags span{
-  background: rgba(0,0,0,.45);
+  background: rgba(0,0,0,.42);
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 14px;
-  padding: 6px 10px;
-  font-size: 13px;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12.5px;
   letter-spacing:.08em;
-  color: rgba(235,235,235,.9);
+  color: rgba(235,235,235,.92);
 }
 
-/* 性格：段落の密度を312寄りに */
+/* 性格：読みやすさ */
 .tk-personality p{
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   color: rgba(235,235,235,.92);
 }
 .tk-personality p:last-child{ margin-bottom:0; }
 
-/* =======================
-   折り畳み（▼を消して312寄りのバー）
-   ======================= */
+/* ---------------------------------------------------------
+   4) 折り畳み：▼を確実に消す＋312風バー
+   --------------------------------------------------------- */
 details.tk-details{
   width:92%;
-  margin: 0 auto 16px auto;
+  margin: 0 auto 14px auto;
   background: linear-gradient(to bottom, rgba(12,12,12,.88), rgba(0,0,0,.92));
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow:hidden;
 }
 
@@ -194,15 +242,37 @@ details.tk-details summary{
   background: linear-gradient(to right, rgba(0,0,0,.96), rgba(18,18,18,.85), rgba(0,0,0,.96));
   border-left: 4px solid rgba(150,150,150,.55);
 
-  font-weight:bold;
+  font-weight:800;
   letter-spacing:.18em;
   color:#eaeaea;
+
+  position:relative;
 }
-details.tk-details summary::-webkit-details-marker{ display:none; }
-details.tk-details > summary::marker{ content:""; } /* Firefox等 */
+
+/* ▼（Webkit） */
+details.tk-details summary::-webkit-details-marker{ display:none !important; }
+/* ▼（Firefox等） */
+details.tk-details > summary::marker{ content:"" !important; }
+/* 万一残る環境対策 */
+details.tk-details summary::before{
+  content:"";
+  position:absolute;
+  right:12px;
+  top:50%;
+  width:10px;
+  height:10px;
+  transform: translateY(-50%) rotate(45deg);
+  border-right:2px solid rgba(230,230,230,.45);
+  border-bottom:2px solid rgba(230,230,230,.45);
+  opacity:.75;
+}
+details.tk-details[open] summary::before{
+  transform: translateY(-50%) rotate(225deg);
+  opacity:.9;
+}
 
 details.tk-details > *:not(summary){
-  padding: 14px;
+  padding: 12px 14px;
 }
 
 /* 異能だけ副題 */
@@ -214,37 +284,38 @@ details.tk-ability summary span{
   color: rgba(220,220,220,.55);
 }
 
-/* =======================
-   ミニステ（中央）
-   ======================= */
+/* ---------------------------------------------------------
+   5) ミニステ（中央）
+   --------------------------------------------------------- */
 .tk-status{
   width:70%;
   max-width:520px;
-  margin: 10px auto 18px auto;
+  margin: 10px auto 14px auto;
   border-collapse: collapse;
-  background: rgba(0,0,0,.35);
+  background: rgba(0,0,0,.30);
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow:hidden;
 }
 .tk-status td{
   padding: 10px 12px;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
+.tk-status tr:last-child td{ border-bottom:none; }
 .tk-slabel{ width:65%; letter-spacing:.10em; }
-.tk-sval{ width:35%; text-align:center; font-weight:bold; letter-spacing:.12em; }
+.tk-sval{ width:35%; text-align:center; font-weight:800; letter-spacing:.12em; }
 .tk-small{ color: rgba(210,210,210,.55); }
 .tk-normal{ color: rgba(235,235,235,.70); }
 
-/* =======================
-   技能表
-   ======================= */
+/* ---------------------------------------------------------
+   6) 技能表
+   --------------------------------------------------------- */
 .tk-skill{
   width:100%;
   border-collapse: collapse;
-  background: rgba(0,0,0,.35);
+  background: rgba(0,0,0,.30);
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow:hidden;
 }
 .tk-skill th{
@@ -260,25 +331,29 @@ details.tk-ability summary span{
   border-bottom: 1px solid rgba(255,255,255,.08);
   vertical-align: top;
 }
-.tk-sname{ width:20%; font-weight:bold; letter-spacing:.10em; white-space:nowrap; }
-.tk-srank{ width:14%; text-align:center; font-weight:bold; letter-spacing:.12em; white-space:nowrap; }
+.tk-skill tr:last-child td{ border-bottom:none; }
+.tk-sname{ width:20%; font-weight:800; letter-spacing:.10em; white-space:nowrap; }
+.tk-srank{ width:14%; text-align:center; font-weight:800; letter-spacing:.12em; white-space:nowrap; }
 .tk-sdesc{ width:66%; }
 
 .tk-rn{ color: rgba(235,235,235,.65); }
-.tk-rp{ color: rgba(235,235,235,.40); }
+.tk-rp{ color: rgba(235,235,235,.42); }
 .tk-re{ color: rgba(245,245,245,.92); }
 .tk-re::before{ content:"✢ "; color: rgba(245,245,245,.65); }
 .tk-re::after{ content:" ✢"; color: rgba(245,245,245,.65); }
 
-/* =======================
-   邂逅禄・PL
-   ======================= */
+/* 卓越行を少し強調（派手すぎない） */
+.tk-skill tr:hover{ background: rgba(255,255,255,.03); }
+
+/* ---------------------------------------------------------
+   7) 邂逅禄・PL
+   --------------------------------------------------------- */
 .tk-enc{
   width:100%;
   border-collapse: collapse;
-  background: rgba(0,0,0,.35);
+  background: rgba(0,0,0,.30);
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow:hidden;
 }
 .tk-enc th{
@@ -293,10 +368,12 @@ details.tk-ability summary span{
   border-bottom: 1px solid rgba(255,255,255,.08);
   vertical-align: top;
 }
-.tk-ename{ width:28%; font-weight:bold; letter-spacing:.10em; }
+.tk-enc tr:last-child td{ border-bottom:none; }
+.tk-ename{ width:28%; font-weight:800; letter-spacing:.10em; }
 .tk-edesc{ width:48%; }
 .tk-elog{ width:24%; text-align:center; }
 
+/* PL箇条書き */
 .tk-pl{ list-style:none; padding:0; margin:0; }
 .tk-pl li{
   padding: 10px 0 10px 18px;
