@@ -483,3 +483,6 @@ color:#d8f1ff!important;
 font-weight:bold!important;
 text-shadow:0 0 6px rgba(160,220,255,.6)!important;
 }
+.tk-srank{transform:none!important;rotate:0deg!important;writing-mode:horizontal-tb!important;text-orientation:mixed!important;white-space:nowrap!important;vertical-align:middle!important;text-align:center!important;}
+.tk-re::before,.tk-re::after{content:""!important;display:none!important;}
+.tk-re{color:#d8f1ff!important;font-weight:800!important;text-shadow:0 0 6px rgba(160,220,255,.55)!important;}
