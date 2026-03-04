@@ -1,232 +1,480 @@
-/* =========================================================
-   Tokoyo PC List - CSS v2 (312-like / stable)
-   ========================================================= */
-
-/* =========================
-   背景固定
-   ========================= */
+/* =============================
+   背景
+============================= */
 
 html,body{
-  background:
-    url('https://livedoor.blogimg.jp/nakayosikoyosi1992/imgs/c/3/c36df15a.png?v=20260304181133')
-    center top / cover no-repeat fixed !important;
+background:url("https://livedoor.blogimg.jp/nakayosikoyosi1992/imgs/c/3/c36df15a.png?v=20260304181133") center top / cover no-repeat fixed !important;
 }
 
-body{
-  color:#eaeaea;
-}
-
-/* =========================
-   コメント欄
-   ========================= */
+/* =============================
+   コメント全体
+============================= */
 
 .tk-wrap{
 
-  width:95%;
-  max-width:980px;
-  margin:0 auto;
+width:95%;
+max-width:980px;
 
-  font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+margin:0 auto;
 
-  letter-spacing:.05em;
-  font-size:13px;
-  line-height:1.55;
+background:rgba(0,0,0,.55);
 
-  color:#eaeaea;
+border:1px solid rgba(255,255,255,.12);
 
-  background:rgba(0,0,0,.56);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 0 26px rgba(0,0,0,.72);
+border-radius:12px;
 
-  border-radius:12px;
+box-shadow:0 0 26px rgba(0,0,0,.7);
 
-  padding:14px 10px;
+padding:16px 12px;
+
+font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+
+font-size:14px;
+
+line-height:1.75;
+
+color:#eaeaea;
+
 }
 
-/* =========================
-   画像切替
-   ========================= */
+/* =============================
+   上部テーブル
+============================= */
+
+.left,.right{
+color:#000 !important;
+padding-top:6px;
+padding-bottom:6px;
+line-height:1.6;
+}
+
+/* =============================
+   画像切替バー
+============================= */
 
 .tk-image-links{
 
-  width:92%;
-  margin:0 auto 8px auto;
+display:flex;
+gap:8px;
 
-  display:flex;
-  gap:8px;
+width:92%;
+
+margin:0 auto 10px auto;
+
 }
 
 .tk-image-links a{
 
-  flex:1 1 0;
+flex:1;
 
-  padding:10px 0;
+padding:10px 0;
 
-  text-align:center;
+text-align:center;
 
-  background:linear-gradient(to bottom, rgba(30,30,30,.96), rgba(0,0,0,.98));
-  border:1px solid rgba(255,255,255,.14);
+background:linear-gradient(to bottom,#222,#000);
 
-  border-radius:12px;
+border:1px solid rgba(255,255,255,.15);
 
-  font-weight:bold;
-  letter-spacing:.22em;
+border-radius:10px;
 
-  font-size:12px;
+color:#eaeaea;
 
-  color:#eaeaea;
+font-size:13px;
 
-  text-decoration:none;
+font-weight:bold;
+
+letter-spacing:.2em;
+
+text-decoration:none;
+
 }
 
-/* =========================
+.tk-image-links a:hover{
+
+background:linear-gradient(to bottom,#333,#000);
+
+}
+
+/* =============================
    メイン画像
-   ========================= */
+============================= */
 
 .tk-main-image{
 
-  width:92%;
-  margin:0 auto 8px auto;
+text-align:center;
 
-  text-align:center;
+width:92%;
 
-  padding:6px;
+margin:0 auto 12px auto;
 
-  background:rgba(0,0,0,.34);
-  border:1px solid rgba(255,255,255,.10);
+padding:8px;
 
-  border-radius:12px;
+background:rgba(0,0,0,.35);
+
+border:1px solid rgba(255,255,255,.1);
+
+border-radius:10px;
+
 }
 
 .tk-profile-image{
 
-  display:block;
-  margin:0 auto;
+display:block;
 
-  max-width:480px;
-  width:100%;
-  height:auto;
+margin:0 auto;
 
-  border-radius:12px;
+max-width:520px;
 
-  border:1px solid rgba(255,255,255,.14);
+width:100%;
+
+height:auto;
+
+border-radius:10px;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:0 0 18px rgba(0,0,0,.8);
+
 }
 
-/* =========================
-   基本情報テーブル
-   ========================= */
+/* =============================
+   基本情報
+============================= */
 
 .tk-basic{
 
-  width:92%;
-  margin:0 auto 8px auto;
+width:92%;
 
-  border-collapse:collapse;
+margin:0 auto 12px auto;
 
-  background:linear-gradient(to bottom, rgba(12,12,12,.90), rgba(0,0,0,.94));
+border-collapse:collapse;
 
-  border:1px solid rgba(255,255,255,.14);
+background:rgba(0,0,0,.85);
 
-  border-radius:12px;
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
 }
 
 .tk-basic th{
 
-  width:30%;
-  padding:7px 9px;
+width:30%;
 
-  text-align:left;
+padding:8px 10px;
 
-  background:rgba(0,0,0,.55);
+text-align:left;
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+background:rgba(0,0,0,.55);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
 }
 
 .tk-basic td{
 
-  padding:7px 9px;
+padding:8px 10px;
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08);
+
 }
 
-/* =========================
-   容姿・性格
-   ========================= */
+/* =============================
+   セクション箱
+============================= */
 
 .tk-box{
 
-  width:92%;
-  margin:0 auto 8px auto;
+width:92%;
 
-  background:linear-gradient(to bottom, rgba(12,12,12,.88), rgba(0,0,0,.94));
+margin:0 auto 12px auto;
 
-  border:1px solid rgba(255,255,255,.14);
+background:rgba(0,0,0,.85);
 
-  border-radius:12px;
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
 }
 
 .tk-title{
 
-  padding:9px 10px;
+padding:10px 12px;
 
-  background:linear-gradient(to right, rgba(0,0,0,.97), rgba(18,18,18,.86));
+font-weight:bold;
 
-  border-left:4px solid rgba(190,190,190,.55);
+letter-spacing:.15em;
 
-  font-weight:bold;
+border-left:4px solid rgba(180,180,180,.5);
 
-  letter-spacing:.18em;
+background:linear-gradient(to right,#000,#181818);
+
 }
 
-/* =========================
+/* =============================
+   容姿タグ
+============================= */
+
+.tk-tags{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:8px;
+
+padding:12px;
+
+}
+
+.tk-tags span{
+
+background:linear-gradient(to bottom,#1a1a1a,#050505);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:14px;
+
+padding:6px 10px;
+
+font-size:13px;
+
+color:#eee;
+
+box-shadow:0 0 6px rgba(0,0,0,.6);
+
+}
+
+/* =============================
+   性格
+============================= */
+
+.tk-personality{
+
+padding:14px;
+
+}
+
+.tk-personality p{
+
+margin:0 0 10px 0;
+
+}
+
+/* =============================
    折り畳み
-   ========================= */
+============================= */
 
 details.tk-details{
 
-  width:92%;
-  margin:0 auto 8px auto;
+width:92%;
 
-  background:linear-gradient(to bottom, rgba(12,12,12,.90), rgba(0,0,0,.94));
+margin:0 auto 12px auto;
 
-  border:1px solid rgba(255,255,255,.14);
+background:rgba(0,0,0,.85);
 
-  border-radius:12px;
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
 }
 
 details.tk-details summary{
 
-  padding:9px 10px;
+padding:10px 12px;
 
-  cursor:pointer;
+font-weight:bold;
 
-  font-weight:bold;
+letter-spacing:.15em;
 
-  letter-spacing:.18em;
+cursor:pointer;
+
+list-style:none;
+
 }
 
-/* =========================================================
-   ★追加① 上部テーブルの文字を黒にする
-   ========================================================= */
+details.tk-details summary::-webkit-details-marker{
 
-.left{
-color:#000 !important;
+display:none;
+
 }
 
-.right{
-color:#000 !important;
+details.tk-details summary::marker{
+
+content:"";
+
 }
 
-/* =========================================================
-   ★追加② 行間を少し広げる
-   ========================================================= */
+details.tk-details > *:not(summary){
 
-.left,
-.right{
+padding:14px;
 
-padding-top:6px;
-padding-bottom:6px;
+}
 
-line-height:1.6;
+/* =============================
+   ステータス
+============================= */
+
+.tk-status{
+
+width:70%;
+
+margin:10px auto;
+
+border-collapse:collapse;
+
+background:rgba(0,0,0,.35);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
+}
+
+.tk-status td{
+
+padding:8px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.tk-slabel{
+
+width:65%;
+
+}
+
+.tk-sval{
+
+width:35%;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+/* =============================
+   技能表
+============================= */
+
+.tk-skill{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:rgba(0,0,0,.35);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
+}
+
+.tk-skill th{
+
+padding:10px;
+
+text-align:left;
+
+background:rgba(0,0,0,.55);
+
+border-bottom:1px solid rgba(255,255,255,.12);
+
+}
+
+.tk-skill td{
+
+padding:10px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+vertical-align:top;
+
+}
+
+.tk-sname{width:20%;font-weight:bold;}
+.tk-srank{width:14%;text-align:center;font-weight:bold;}
+.tk-sdesc{width:66%;}
+
+/* =============================
+   評価色
+============================= */
+
+.tk-rn{color:#ddd;}
+.tk-rp{color:#888;}
+.tk-re{color:#fff;font-weight:bold;}
+
+/* =============================
+   邂逅禄
+============================= */
+
+.tk-enc{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:rgba(0,0,0,.35);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:10px;
+
+}
+
+.tk-enc th{
+
+padding:10px;
+
+background:rgba(0,0,0,.55);
+
+border-bottom:1px solid rgba(255,255,255,.12);
+
+}
+
+.tk-enc td{
+
+padding:10px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* =============================
+   PLリスト
+============================= */
+
+.tk-pl{
+
+list-style:none;
+
+padding:0;
+
+margin:0;
+
+}
+
+.tk-pl li{
+
+padding:8px 0 8px 16px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+position:relative;
+
+}
+
+.tk-pl li::before{
+
+content:"▌";
+
+position:absolute;
+
+left:0;
+
+color:rgba(220,220,220,.45);
 
 }
