@@ -50,64 +50,70 @@ body{
 .tk-wrap img{ max-width:100%; height:auto; display:inline-block; }
 
 /* =========================
-   2) 画像切替：312風 横バー
+   2) 画像切替：ダーク固定バー（3つ横並び）
    ========================= */
 .tk-image-links{
   width: 92%;
-  margin: 0 auto 6px auto;
-  padding: 0;
-  text-align:center;
-}
-
-/* “均等割り”ボタン */
-.tk-image-links a{
-  display:inline-block;
-  width: calc(33.333% - 8px);
-  margin: 0 4px 6px 4px;
-  padding: 8px 0;
-  text-align:center;
-
-  background: linear-gradient(to bottom, rgba(22,22,22,.92), rgba(0,0,0,.96));
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 10px;
-
-  letter-spacing: .16em;
-  font-weight: bold;
-  font-size: 12px;
-
-  box-shadow: 0 0 16px rgba(0,0,0,.45);
-}
-
-.tk-image-links a:hover{
-  border-color: rgba(255,255,255,.24);
-  background: linear-gradient(to bottom, rgba(35,35,35,.92), rgba(0,0,0,.96));
-}
-
-@media (max-width:680px){
-  .tk-image-links a{ width: calc(50% - 8px); }
-}
-@media (max-width:420px){
-  .tk-image-links a{ width: calc(100% - 8px); }
-}
-
-/* 画像枠 */
-.tk-main-image{
-  width:92%;
   margin: 0 auto 8px auto;
-  text-align:center;
 
-  padding: 6px;
-  background: rgba(0,0,0,.34);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 12px;
+  display:flex;
+  gap:8px;                 /* ボタンの隙間 */
+  align-items:stretch;
+  justify-content:space-between;
 }
 
-/* メイン画像サイズ（小さめ・安定） */
-.tk-profile-image{
-  width: min(360px, 100%);
+/* ボタン本体：3分割で枠内に収める */
+.tk-image-links a{
+  flex:1 1 0;
+  min-width:0;             /* 長い文字でも枠内に収める */
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding: 10px 0;
   border-radius: 12px;
+
+  /* ダークで“金属感” */
+  background: linear-gradient(to bottom, rgba(30,30,30,.96), rgba(0,0,0,.98));
   border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 0 22px rgba(0,0,0,.82);
+  box-shadow:
+    0 0 18px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06);
+
+  color:#eaeaea;
+  font-weight:700;
+  letter-spacing:.22em;
+  font-size:12px;
+
+  text-decoration:none;
+  user-select:none;
+  white-space:nowrap;      /* 横並び維持 */
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* ホバー：静かに光る */
+.tk-image-links a:hover{
+  border-color: rgba(255,255,255,.28);
+  background: linear-gradient(to bottom, rgba(44,44,44,.96), rgba(0,0,0,.98));
+}
+
+/* 押した瞬間の沈み込み */
+.tk-image-links a:active{
+  transform: translateY(1px);
+  box-shadow:
+    0 0 14px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* スマホ保険：画面が狭い時だけ2列→1列へ */
+@media (max-width:520px){
+  .tk-image-links{ flex-wrap:wrap; }
+  .tk-image-links a{ flex: 1 1 calc(50% - 8px); }
+}
+@media (max-width:360px){
+  .tk-image-links a{ flex: 1 1 100%; }
 }
 
 /* =========================
