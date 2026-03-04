@@ -1,3 +1,8 @@
+html, body{
+  background:url('https://livedoor.blogimg.jp/nakayosikoyosi1992/imgs/c/3/c36df15a.png') no-repeat center top fixed !important;
+  background-size:cover !important;
+}
+
 /* =========================================================
    Tokoyo PC List - 312-like (stable / comment-safe)
    ========================================================= */
