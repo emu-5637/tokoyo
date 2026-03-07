@@ -515,3 +515,5 @@ details.tk-details.tk-ability > *{
 position:relative;
 z-index:1;
 }
+.tk-secret ul{margin:0;padding-left:18px}
+.tk-secret li{margin:3px 0}
